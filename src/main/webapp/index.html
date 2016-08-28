@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="angularIntro">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>AngularJS Intro</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src="AngularIntro.js"></script>
+<script src="MainController.js"></script>
+<script src="Service.js"></script>
 </head>
-<body>
-hello angular
+<body ng-controller='mainController'>
+Angular Intro<br>
+by Gvaireth<br><br>
+{{status}}<br>
+{{greetings}}
 </body>
 </html>
