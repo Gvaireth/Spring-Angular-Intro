@@ -3,16 +3,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>AngularJS Intro</title>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
-<script src="AngularIntro.js"></script>
-<script src="MainController.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src="Module.js"></script>
+<script src="Controller.js"></script>
 <script src="Service.js"></script>
 </head>
-<body ng-controller='mainController'>
-	<div ng-view>
-		Angular Intro<br> by Gvaireth<br>
-		<br> {{greetings}}
-	</div>
+<body ng-controller='controller'>
+	Angular Intro
+	<br> by
+	<a href="https://howtotrainyourjee.com/author/">Gvaireth</a>
+	<br>
+	<br> Asynchronous data fetch from server:
+	<b>{{greetings}}</b>
 </body>
 </html>
