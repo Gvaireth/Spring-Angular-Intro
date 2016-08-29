@@ -4,12 +4,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
+
+	@RequestMapping("/start")
+	public ModelAndView helloWorld(Model model) {
+		System.out.println("front controller up");
+		return new ModelAndView("/View.html");
+	}
 
 	@RequestMapping(value = "/getGreetings/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Greeting> getGreetings(@PathVariable String name) {
