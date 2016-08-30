@@ -15,13 +15,11 @@ public class MainController {
 
 	@RequestMapping("/start")
 	public ModelAndView helloWorld(Model model) {
-		System.out.println("/start");
 		return new ModelAndView("/View.html");
 	}
 
-	@RequestMapping(value = "/getGreetings/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/getGreetings/{name}")
 	public ResponseEntity<Greeting> getGreetings(@PathVariable String name) {
-		System.out.println("/getGreetings name=" + name);
 		Greeting greetings = new Greeting("Hello " + name + "!");
 		serverTiredAndWillSleepNow();
 		return new ResponseEntity<>(greetings, HttpStatus.OK);
@@ -34,5 +32,4 @@ public class MainController {
 			Thread.currentThread().interrupt();
 		}
 	}
-
 }
