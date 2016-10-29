@@ -1,1 +1,1 @@
-var angularIntro = angular.module('angularIntro',[]);
+angular.module('angularIntro',[]);

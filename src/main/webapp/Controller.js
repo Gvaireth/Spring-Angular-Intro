@@ -1,4 +1,4 @@
-angularIntro.controller('controller', function($scope, service) {
+angular.module('angularIntro').controller('controller', function($scope, service) {
 	$scope.greetings="loading..."
 	service.getGreetings('world').then(function(result) {
 		$scope.greetings = result.data.text;
