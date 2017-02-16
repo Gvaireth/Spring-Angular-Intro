@@ -1,4 +1,4 @@
-package org.gvaireth.angularintro;
+package org.gvaireth.springangularintro;
 
 public class Greeting {
 
