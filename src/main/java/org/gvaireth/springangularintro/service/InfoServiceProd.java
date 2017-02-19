@@ -8,5 +8,4 @@ public class InfoServiceProd implements InfoService {
 	public Info getInfo() {
 		return new Info("Prod profile");
 	}
-
 }
