@@ -5,6 +5,7 @@ import org.gvaireth.springangularintro.Info;
 import org.gvaireth.springangularintro.service.GreetingService;
 import org.gvaireth.springangularintro.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class MainController {
 	private GreetingService greetingService;
 
 	@Autowired
-	// @Qualifier("prod")
+	@Qualifier("prod")
 	private InfoService infoService;
 
 	// @Autowired
@@ -30,9 +31,9 @@ public class MainController {
 	}
 
 	// @Autowired
-	public MainController(InfoService infoService) {
-		this.infoService = infoService;
-	}
+	// public MainController(InfoService infoService) {
+	// this.infoService = infoService;
+	// }
 
 	@RequestMapping("/start")
 	public ModelAndView helloWorld(Model model) {

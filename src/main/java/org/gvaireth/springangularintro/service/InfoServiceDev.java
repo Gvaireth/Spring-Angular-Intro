@@ -1,11 +1,9 @@
 package org.gvaireth.springangularintro.service;
 
 import org.gvaireth.springangularintro.Info;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-@Service
-@Primary
+@Service("dev")
 public class InfoServiceDev implements InfoService {
 
 	@Override
