@@ -3,4 +3,7 @@ angularIntro.controller('controller', function($scope, service) {
 	service.getGreetings('world').then(function(result) {
 		$scope.greetings = result.data.text;
 	});
+	service.getInfo().then(function(result) {
+		$scope.info = result.data.msg;
+	});
 });

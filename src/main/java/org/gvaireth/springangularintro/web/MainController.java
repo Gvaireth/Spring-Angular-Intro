@@ -1,7 +1,9 @@
 package org.gvaireth.springangularintro.web;
 
 import org.gvaireth.springangularintro.Greeting;
+import org.gvaireth.springangularintro.Info;
 import org.gvaireth.springangularintro.service.GreetingService;
+import org.gvaireth.springangularintro.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ public class MainController {
 	@Autowired
 	private GreetingService greetingService;
 
+	@Autowired
+	private InfoService infoService;
+
 	@RequestMapping("/start")
 	public ModelAndView helloWorld(Model model) {
 		return new ModelAndView("/View.html");
@@ -27,6 +32,12 @@ public class MainController {
 		Greeting greetings = greetingService.getGreeting(name);
 		serverTiredAndWillSleepNow();
 		return new ResponseEntity<>(greetings, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/getInfo/")
+	public ResponseEntity<Info> getInfo() {
+		Info info = infoService.getInfo();
+		return new ResponseEntity<>(info, HttpStatus.OK);
 	}
 
 	private void serverTiredAndWillSleepNow() {
