@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class DevConfiguration {
-	@Bean(name = "dev")
+	@Bean
 	public InfoService getInfoDev() {
 		return new InfoServiceDev();
 	}
