@@ -1,16 +1,17 @@
 package org.gvaireth.springangularintro;
 
 import org.gvaireth.springangularintro.service.InfoService;
-import org.gvaireth.springangularintro.service.InfoServiceDev;
+import org.gvaireth.springangularintro.service.InfoServiceProd;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile("dev")
-public class DevConfiguration {
+@Profile("prod")
+public class ProdConfiguration {
 	@Bean
-	public InfoService getInfoDev() {
-		return new InfoServiceDev();
+	public InfoService getInfoProd() {
+		return new InfoServiceProd();
 	}
+
 }
