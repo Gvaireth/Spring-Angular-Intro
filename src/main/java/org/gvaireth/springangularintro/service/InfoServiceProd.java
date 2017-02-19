@@ -1,7 +1,9 @@
 package org.gvaireth.springangularintro.service;
 
 import org.gvaireth.springangularintro.Info;
+import org.springframework.stereotype.Service;
 
+@Service
 public class InfoServiceProd implements InfoService {
 
 	@Override
