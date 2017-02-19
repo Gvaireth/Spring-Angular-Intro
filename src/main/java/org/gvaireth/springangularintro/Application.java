@@ -1,6 +1,7 @@
 package org.gvaireth.springangularintro;
 
 import org.gvaireth.springangularintro.service.InfoService;
+import org.gvaireth.springangularintro.service.InfoServiceDev;
 import org.gvaireth.springangularintro.service.InfoServiceProd;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,8 +23,13 @@ public class Application {
 		System.out.println("app running");
 	}
 
-	@Bean
-	public InfoService getInfo() {
+	@Bean(name = "dev")
+	public InfoService getInfoDev() {
+		return new InfoServiceDev();
+	}
+
+	@Bean(name = "prod")
+	public InfoService getInfoProd() {
 		return new InfoServiceProd();
 	}
 

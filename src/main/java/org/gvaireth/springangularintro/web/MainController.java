@@ -5,6 +5,7 @@ import org.gvaireth.springangularintro.Info;
 import org.gvaireth.springangularintro.service.GreetingService;
 import org.gvaireth.springangularintro.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ public class MainController {
 	private GreetingService greetingService;
 
 	@Autowired
+	@Qualifier("dev")
 	private InfoService infoService;
 
 	@RequestMapping("/start")
@@ -27,17 +29,17 @@ public class MainController {
 		return new ModelAndView("/View.html");
 	}
 
+	@RequestMapping(value = "/getInfo/")
+	public ResponseEntity<Info> getInfo() {
+		Info info = infoService.getInfo();
+		return new ResponseEntity<>(info, HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "/getGreetings/{name}")
 	public ResponseEntity<Greeting> getGreetings(@PathVariable String name) {
 		Greeting greetings = greetingService.getGreeting(name);
 		serverTiredAndWillSleepNow();
 		return new ResponseEntity<>(greetings, HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/getInfo/")
-	public ResponseEntity<Info> getInfo() {
-		Info info = infoService.getInfo();
-		return new ResponseEntity<>(info, HttpStatus.OK);
 	}
 
 	private void serverTiredAndWillSleepNow() {
