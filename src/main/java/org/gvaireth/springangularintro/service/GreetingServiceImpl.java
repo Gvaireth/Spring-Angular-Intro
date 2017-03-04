@@ -10,4 +10,9 @@ public class GreetingServiceImpl implements GreetingService {
 		return new Greeting("Hello " + name + "!");
 	}
 
+	@Override
+	public Greeting getGreeting(String title, String name, String surname) {
+		return new Greeting("Hello " + title + " " + name + " " + surname + "!");
+	}
+
 }
