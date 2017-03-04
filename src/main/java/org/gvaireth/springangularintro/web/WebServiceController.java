@@ -1,6 +1,7 @@
 package org.gvaireth.springangularintro.web;
 
 import org.gvaireth.springangularintro.Greeting;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,10 @@ public class WebServiceController {
 	public Greeting getGreetingWithParam(
 			@RequestParam(name = "name", required = false, defaultValue = "stranger") String someone) {
 		return new Greeting("Hello " + someone + "!");
+	}
+
+	@RequestMapping("/greetingwithmodel")
+	public Greeting getGreetingWithModel(@Validated GreetingParams model) {
+		return new Greeting("Hello " + model.getTitle() + " " + model.getName() + " " + model.getSurname() + "!");
 	}
 }
