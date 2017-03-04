@@ -13,5 +13,4 @@ public class ProdConfiguration {
 	public InfoService getInfoProd() {
 		return new InfoServiceProd();
 	}
-
 }
