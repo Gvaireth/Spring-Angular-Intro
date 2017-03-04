@@ -3,6 +3,8 @@ package org.gvaireth.springangularintro.web;
 import org.gvaireth.springangularintro.Greeting;
 import org.gvaireth.springangularintro.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,4 +46,18 @@ public class WebServiceController {
 	public Greeting getGreetingWithPost(@RequestBody GreetingParams body) {
 		return service.getGreeting(body.getTitle(), body.getName(), body.getSurname());
 	}
+
+	@RequestMapping(value = "/greetingwithcodes", method = RequestMethod.POST)
+	public ResponseEntity<Greeting> getGreetingWithCodes(@RequestBody GreetingParams body) {
+		Greeting greeting = service.getGreeting(body.getTitle(), body.getName(), body.getSurname());
+		HttpStatus status = HttpStatus.CREATED;
+		System.out.println(body.getSurname());
+		if ("Smith".equals(body.getSurname())) {
+			status = HttpStatus.ALREADY_REPORTED;
+		} else if ("Jackson".equals(body.getSurname())) {
+			status = HttpStatus.GONE;
+		}
+		return new ResponseEntity<Greeting>(greeting, status);
+	}
+
 }
