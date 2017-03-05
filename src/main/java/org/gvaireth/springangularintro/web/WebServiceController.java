@@ -36,9 +36,10 @@ public class WebServiceController {
 		return service.getGreeting(model.getTitle(), model.getName(), model.getSurname());
 	}
 
-	@RequestMapping("/greetingwithpath/{title}/{name}/{surname}")
+	@RequestMapping("/greetingwithpath/{title}/{name}/{surname}/{age}")
 	public Greeting getGreetingWithPath(@PathVariable String title, @PathVariable String name,
-			@PathVariable String surname) {
+			@PathVariable String surname, @PathVariable Integer age) {
+		System.out.println("He's " + age + " years old");
 		return service.getGreeting(title, name, surname);
 	}
 
