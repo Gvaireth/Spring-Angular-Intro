@@ -10,4 +10,6 @@ primary key (id)
 )
 
 select * from books;
+select * from books where name like "%Hobbit%";
+
 insert into books (name,published) values ("The Hobbit", STR_TO_DATE('21/09/1937', '%d/%m/%Y'));
