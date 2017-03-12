@@ -30,7 +30,7 @@ public class DatabaseController {
 
 	@RequestMapping("/book/find/{name}")
 	public List<Book> find(@PathVariable String name) {
-		return bookRepository.findByName(name);
+		return bookRepository.findByNameIgnoreCaseContaining(name);
 	}
 
 	@RequestMapping(value = "/book/add", method = RequestMethod.PUT)

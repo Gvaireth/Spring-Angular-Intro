@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-	List<Book> findByName(String name);
+	List<Book> findByNameIgnoreCaseContaining(String name);
 }
