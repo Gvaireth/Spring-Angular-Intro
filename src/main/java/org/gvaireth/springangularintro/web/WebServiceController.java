@@ -45,6 +45,7 @@ public class WebServiceController {
 
 	@RequestMapping(value = "/greetingwithpost", method = RequestMethod.POST)
 	public Greeting getGreetingWithPost(@RequestBody GreetingParams body) {
+		System.out.println("He's " + body.getAge() + " years old");
 		return service.getGreeting(body.getTitle(), body.getName(), body.getSurname());
 	}
 
@@ -52,10 +53,9 @@ public class WebServiceController {
 	public ResponseEntity<Greeting> getGreetingWithCodes(@RequestBody GreetingParams body) {
 		Greeting greeting = service.getGreeting(body.getTitle(), body.getName(), body.getSurname());
 		HttpStatus status = HttpStatus.CREATED;
-		System.out.println(body.getSurname());
 		if ("Smith".equals(body.getSurname())) {
 			status = HttpStatus.ALREADY_REPORTED;
-		} else if ("Jackson".equals(body.getSurname())) {
+		} else if ("Michael".equals(body.getName()) && "Jackson".equals(body.getSurname())) {
 			status = HttpStatus.GONE;
 		}
 		return new ResponseEntity<Greeting>(greeting, status);
