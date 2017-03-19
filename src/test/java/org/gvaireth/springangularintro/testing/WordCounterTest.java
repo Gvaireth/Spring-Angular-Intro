@@ -19,7 +19,6 @@ public class WordCounterTest {
 	@Test
 	public void testWordCounting() {
 		assertThat(wordCouter.countWords("Hello world!"), equalTo(2));
-		assertThat(wordCouter.countWords(null), equalTo(0));
 	}
 
 	@Test
