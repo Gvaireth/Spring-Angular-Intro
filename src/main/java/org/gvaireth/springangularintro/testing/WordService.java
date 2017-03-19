@@ -10,6 +10,7 @@ public class WordService {
 	private WordCounter wordCounter;
 
 	public int countWords(String sentence) {
+		sentence = sentence != null ? sentence.trim() : "";
 		return wordCounter.countWords(sentence);
 	}
 }
