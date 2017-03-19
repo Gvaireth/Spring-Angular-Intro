@@ -28,7 +28,7 @@ public class WordServiceTest {
 	}
 
 	@Test
-	public void testArgumentPassing() {
+	public void testArgumentCapture() {
 		service.countWords("  hello there  ");
 
 		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);

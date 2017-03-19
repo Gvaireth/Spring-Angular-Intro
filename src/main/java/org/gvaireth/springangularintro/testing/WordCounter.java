@@ -15,8 +15,7 @@ public class WordCounter {
 	public List<Integer> countLetters(String sentence) {
 		List<Integer> result = new ArrayList<>();
 		if (sentence != null) {
-			String[] words = sentence.split(" ");
-			for (String word : words) {
+			for (String word : sentence.split(" ")) {
 				result.add(word.length());
 			}
 		}
