@@ -38,8 +38,6 @@ public class WordServiceTest {
 
 	@Before
 	public void setup() {
-		service = new WordService();
-
 		MockitoAnnotations.initMocks(this);
 		when(wordCounter.countWords(any())).thenReturn(2);
 	}
