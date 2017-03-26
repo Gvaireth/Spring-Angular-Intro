@@ -15,8 +15,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		// http.authorizeRequests().anyRequest().permitAll();
 
+		// http.authorizeRequests().antMatchers("/start").permitAll();
+		// http.authorizeRequests().antMatchers("/admin").authenticated();
+		// http.httpBasic();
+
 		http.authorizeRequests().antMatchers("/start").permitAll();
-		http.authorizeRequests().antMatchers("/admin").authenticated();// hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/user").hasRole("USER");
 		http.httpBasic();
 
 		// admin:admin1@localhost:8080/SpringAngularIntro/admin
@@ -24,6 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password("admin1").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("admin").password("admin1").roles("ADMIN").and().withUser("user")
+				.password("user1").roles("USER");
 	}
 }
