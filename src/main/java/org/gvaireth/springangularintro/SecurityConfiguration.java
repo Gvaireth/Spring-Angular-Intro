@@ -19,10 +19,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// http.authorizeRequests().antMatchers("/admin").authenticated();
 		// http.httpBasic();
 
-		http.authorizeRequests().antMatchers("/start").permitAll();
-		http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers("/user").hasRole("USER");
-		http.httpBasic();
+		// http.authorizeRequests().antMatchers("/start").permitAll();
+		// http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN");
+		// http.authorizeRequests().antMatchers("/user").hasRole("USER");
+		// http.httpBasic();
+
+		http.authorizeRequests().anyRequest().authenticated();
+		http.formLogin().loginPage("/login").permitAll();
+		http.logout().permitAll();
+		http.csrf().disable();
 
 		// admin:admin1@localhost:8080/SpringAngularIntro/admin
 	}
