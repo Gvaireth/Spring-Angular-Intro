@@ -5,6 +5,7 @@ import org.gvaireth.springangularintro.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,6 +60,12 @@ public class WebServiceController {
 			status = HttpStatus.GONE;
 		}
 		return new ResponseEntity<Greeting>(greeting, status);
+	}
+
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping("/securegreeting")
+	public Greeting getSecureGreeting() {
+		return new Greeting("Hello!");
 	}
 
 }
