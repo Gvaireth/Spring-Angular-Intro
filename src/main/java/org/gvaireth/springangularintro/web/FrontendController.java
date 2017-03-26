@@ -39,6 +39,11 @@ public class FrontendController {
 		return new ModelAndView("/View.html");
 	}
 
+	@RequestMapping("/admin")
+	public ModelAndView admin(Model model) {
+		return new ModelAndView("/Admin.html");
+	}
+
 	@RequestMapping(value = "/getInfo/")
 	public ResponseEntity<Info> getInfo() {
 		Info info = infoService.getInfo();
