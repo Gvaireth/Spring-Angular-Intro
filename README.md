@@ -9,3 +9,4 @@ Backed by https://howtotrainyourjava.com/ articles:
 * [Spring Web Basics](https://howtotrainyourjava.com/2017/03/09/spring-web-basics/)
 * [Spring Data JPA Bascis](https://howtotrainyourjava.com/2017/03/16/spring-data-jpa-basics/)
 * [Unit Testing Basics](https://howtotrainyourjava.com/2017/03/23/unit-testing-basics/)
+= [Spring Security Basics] (https://howtotrainyourjava.com/2017/03/30/spring-security-basics/)
